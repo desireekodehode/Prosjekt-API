@@ -12,10 +12,12 @@ async function getWeather() {
     if (!data.ok) {
       throw new Error("Network response was not ok");
     }
-
+    
     const response = await data.json();
     console.log(response);
-    console.log(response.longitude);
+    console.log(response.days[0].feelslike);
+    console.log(response.days[0].feelslikemax);
+    console.log(response.days[0].hours);
     console.log(response.resolvedAddress);
 
   } catch (err) {
