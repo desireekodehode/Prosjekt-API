@@ -1,36 +1,17 @@
 
-const weatherUrl ="https://api.weatherapi.com/v1/forecast.json?key=25cadc5e26b24175a5874453231110&q=Tonsberg&days=3&aqi=no&alerts=no"
 
-  
+const weatherUrl ="https://api.weatherapi.com/v1/forecast.json?key=25cadc5e26b24175a5874453231110&q=Tonsberg&days=3&aqi=no&alerts=no";
 
-async function getWeather() {   
- 
-  
+const current = document.getElementById('current');
+const forecastOne = document.getElementById('forecast-one');
+const forecastTwo = document.getElementById('forecast-two');
+const forecastThree = document.getElementById('forecast-three');
+const timePlace = document.getElementById(`time`);
+
+async function getWeather() {
+  try {
     const data = await fetch(weatherUrl, {
-      method: "GET",
-      headers: {
-        "Transfer-Encoding": "chunked",
-        "Connection": "keep-alive",
-        "Vary": "Accept-Encoding",
-        "CDN-PullZone": "93447",
-        "CDN-Uid": "8fa3a04a-75d9-4707-8056-b7b33c8ac7fe",
-        "CDN-RequestCountryCode": "GB",
-        "Age": "0",
-        "x-weatherapi-qpm-left": "4999998",
-        "CDN-ProxyVer": "1.04",
-        "CDN-RequestPullSuccess": "True",
-        "CDN-RequestPullCode": "200",
-        "CDN-CachedAt": "10/11/2023 08:08:11",
-        "CDN-EdgeStorageId": "1075",
-        "CDN-Status": "200",
-        "CDN-RequestId": "8d3c9206726b8417ce47a2d9c5ea65e8",
-        "CDN-Cache": "HIT",
-        "Cache-Control": "public, max-age=180",
-        "Content-Type": "application/json",
-        "Date": "Wed, 11 Oct 2023 08:09:14 GMT",
-        "Server": "BunnyCDN-DE1-863",
-        "Via": "1.1 haproxy-api-1 (Varnish/7.3)"
-      },
+      method: "GET"
     });
 
     if (!data.ok) {
@@ -39,18 +20,59 @@ async function getWeather() {
     
     const response = await data.json();
     console.log(response);
-    console.log(response.current.temp_c);
-    console.log(response.current.last_updated);
-    console.log(response.current.cloud);
-   console.log(response.current.condition.icon);
 
-   current.innerHTML = `   <h2 class="cardtitle">${}</h2>
-   <p>Somthing:  ${}</p>
-   <img src="${}" />
-   <p>Something else: ${}</p>
-   <p>Something else also ${}</p>`
+    const currentData = response.current;
+    const forecastOneData = response.forecast.forecastday[0].day;
+    const forecastTwoData = response.forecast.forecastday[1].day;
+    const forecastThreeData = response.forecast.forecastday[2].day;
+
+    current.innerHTML = `
+      <h5>Today</h5>
+      <h2>${currentData.condition.text}</h2>
+      <img src="${currentData.condition.icon}" alt="Weather Icon" />
+      <p>${currentData.temp_c}°C</p>
+    `;
+
+    forecastOne.innerHTML = `
+      <h5>Tomorrow</h5>
+      <h2>${forecastOneData.condition.text}</h2>
+      <img src="${forecastOneData.condition.icon}" alt="Weather Icon" />
+      <p>${forecastOneData.maxtemp_c}°C</p>
+    `;
+
+    forecastTwo.innerHTML = `
+      <h5>Sett inn riktig dag</h5>
+      <h2>${forecastTwoData.condition.text}</h2>
+      <img src="${forecastTwoData.condition.icon}" alt="Weather Icon" />
+      <p>${forecastTwoData.maxtemp_c}°C</p>
+    `;
+
+    forecastThree.innerHTML = `
+    <h5>Sett inn riktig dag</h5>
+      <h2>${forecastThreeData.condition.text}</h2>
+      <img src="${forecastThreeData.condition.icon}" alt="Weather Icon" />
+      <p>${forecastThreeData.maxtemp_c}°C</p>
+    `;
+
+    timePlace.innerHTML =`
+    <h3>${response.location.name}</h3> 
+    <h4>${response.location.localtime}</h4>
+    `;
+
+  } catch (error) {
+    console.error(error);
   }
-  
+}
+
+getWeather();
 
 
-getWeather()
+
+
+
+
+
+
+{/* <p>Last Updated: ${response.current.last_updated}</p> */}
+{/* <p>Cloudiness: ${response.current.cloud}%</p> */}
+{/* <h2>${response.location.name}, ${response.location.country}</h2> */}
