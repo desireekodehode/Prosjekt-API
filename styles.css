@@ -1,76 +1,84 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
+* {
+  box-sizing: border-box;
+  margin: 0;
 }
 
-body{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    background: linear-gradient(to bottom, #a0c9d8, #e4ffff);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    font-family: 'Roboto', sans-serif;
-    margin-bottom: 200px;
+body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  /* background: linear-gradient(to bottom, #a0c9d8, #e4ffff); */
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 200px;
+  min-height: 100vh;
 }
 
-.time-place{
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    margin-right: 90px;
-    margin-top: 20px;
-    text-align: end;
+.light-mode {
+  background: linear-gradient(to bottom, #d3dada, #1c9a9a);
+}
+.dark-mode {
+  background: linear-gradient(to bottom, #6c7777, #232525);
 }
 
-.card-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    padding-top: 100px;
+.time-place {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  margin-right: 90px;
+  margin-top: 20px;
+  text-align: end;
 }
 
-h2{
-    font-size: medium;
-    text-align: center;  
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 100px;
 }
 
-h3{
-    color: rgb(255, 255, 255);
+h2 {
+  font-size: medium;
+  text-align: center;
 }
 
-h4{
-    font-size: small;
-    color: rgb(255, 255, 255);
+h3 {
+  color: rgb(255, 255, 255);
 }
 
-h5{
-    font-weight: normal;
-    text-align: center;
-    margin-top: 40px;
+h4 {
+  font-size: small;
+  color: rgb(255, 255, 255);
+}
+
+h5 {
+  font-weight: normal;
+  text-align: center;
+  margin-top: 40px;
 }
 
 p {
-    text-align: center;
-    color: crimson;
-    margin-top: 20px;
+  text-align: center;
+  color: crimson;
+  margin-top: 20px;
 }
 
-img{
-    width: 100px;
-    margin-left: 60px;
-    margin-top: 10px;
+img {
+  width: 100px;
+  margin-left: 60px;
+  margin-top: 10px;
 }
 
-.card{
-    height: 250px;
-    width: 229px;
-    background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 19px;
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+.card {
+  height: 250px;
+  width: 229px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 19px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
