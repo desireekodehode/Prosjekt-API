@@ -8,7 +8,6 @@ body {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  /* background: linear-gradient(to bottom, #a0c9d8, #e4ffff); */
   background-size: 100% 100%;
   background-repeat: no-repeat;
   font-family: "Roboto", sans-serif;
@@ -17,27 +16,78 @@ body {
 }
 
 .light-mode {
-  background: linear-gradient(to bottom, #d3dada, #1c9a9a);
+  background: linear-gradient(to bottom, #9DC9D6, #DCE9EE);
 }
 .dark-mode {
-  background: linear-gradient(to bottom, #6c7777, #232525);
+  background: linear-gradient(to bottom, #101E33, #273557);
 }
 
 .time-place {
   position: fixed;
+  text-align: end;
   top: 20px;
   right: 20px;
   margin-right: 90px;
   margin-top: 20px;
-  text-align: end;
 }
+
+
+
+.curren-container{
+    display: flex;
+    justify-content:flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: rgba(255, 255, 255, 0.3);
+    height: 214px;
+    width: 950px;
+    border-radius: 19px;
+    margin-bottom: 5px;
+    padding: 0px;
+}
+
+.card-current-text {
+  padding-top: 35px;
+  padding-left: 35px;
+  text-align: start;
+  height: 100px;
+  width: 160px;
+  align-items: flex-start;
+}
+
+.card-current-img{
+    height: 100px;
+}
+
+.card-current-xinfo{
+    height: 50px;
+    width: 90px;
+    margin: 0; 
+    padding: 0;
+}
+
 
 .card-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  padding-top: 100px;
+
+}
+
+.card {
+  height: 250px;
+  width: 229px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 19px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+h1{
+  font-size: 35px;
 }
 
 h2 {
@@ -63,29 +113,42 @@ h5 {
 p {
   text-align: center;
   color: crimson;
-  margin-top: 20px;
+  padding-top: 20px;
 }
 
-img {
+
+.forecastImg {
   width: 100px;
   margin-left: 60px;
   margin-top: 10px;
 }
 
-.card {
-  height: 250px;
-  width: 229px;
-  background: rgba(157, 19, 19, 0.3);
-  border-color: rgba(255, 255, 255, 0.3);
-  border-radius: 19px;
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  background: rgba(209, 12, 12, 0.163);
-  -webkit-backdrop-filter: blur(2px);
-  backdrop-filter: blur(1px);
-  border: 1px solid rgba(255,255,255,0.025);
- 
- 
+
+@media (max-width: 768px) {
+  .curren-container {
+       margin-top: 50px;
+      flex-direction: column;
+      width: 229px;
+  }
+
+  .card-current-text {
+      width: 100px; 
+      padding-top: 15px;
+      padding-left: 15px;
+  }
+
+  h1{
+    font-size: 25px;
+  }
+
+  .card-current-img{
+    height: 100px;
+  }
+
+  .card-current-img
+  .card-current-xinfo {
+      width: 100%; /* Make image and info take full width on mobile */
+  }
 }
+
+
