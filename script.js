@@ -8,7 +8,7 @@ const currentXinfoOne = document.getElementById("current-xinfo-One");
 const currentXinfoTwo = document.getElementById("current-xinfo-Two");
 const currentXinfoThree = document.getElementById("current-xinfo-Three");
 const currentXinfoFour = document.getElementById("current-xinfo-Four");
-
+const boxes = document.querySelectorAll(".box")
 const forecastOne = document.getElementById("forecast-one");
 const forecastTwo = document.getElementById("forecast-two");
 const forecastThree = document.getElementById("forecast-three");
@@ -49,6 +49,7 @@ async function getWeather() {
 if (hours <= 6 || hours >= 18){ 
   document.body.classList.add('dark-mode')
   document.body.classList.remove('light-mode')
+  boxes.classList.add("box-dark-mode")
 } else {
   document.body.classList.remove('dark-mode')
   document.body.classList.add('light-mode')
