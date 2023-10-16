@@ -68,6 +68,8 @@ if (hours <= 6 || hours >= 18){
 
     current.innerHTML = `
       <img class="card-current-img" src="${currentData.condition.icon}" alt="Weather Icon" />
+      <p>${response.forecast.forecastday[0].astro.sunrise}</p>
+      <p>${response.forecast.forecastday[0].astro.sunset}</p>
     `;
 
     forecastOne.innerHTML = `
