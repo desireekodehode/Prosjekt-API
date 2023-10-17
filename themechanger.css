@@ -12,23 +12,25 @@
     /* background: linear-gradient(to bottom, #101E33, #273557); */
     background-image: url(stars.png);
     background-size: cover;
-    color: lightslategray;
+    color: rgb(255, 255, 255);
   }
   
-  body.dark-mode .card-container .card {
+  .dark-mode .card-container .card, .dark-mode .current-container {
     -webkit-backdrop-filter: blur(3px);
-    backdrop-filter: blur(3px);
+    backdrop-filter: blur(1px);
+    background-color: rgba(212, 179, 248, 0.15);
     border: 1px solid rgba(255, 255, 255, 0, 8);
   }
   
-  .light-mode .card-container .card {
+  .light-mode .card-container .card, .light-mode .current-container {
     -webkit-backdrop-filter: blur(3px);
-    backdrop-filter: blur(1px);
-    background-color: rgba(245, 245, 220, 0.189);
+    backdrop-filter: blur(3px);
+    background-color: rgba(245, 245, 220, 0.69);
     border: 1px solid rgba(255, 255, 255, 0, 08);
   }
   
   .dark-mode h4,
   .dark-mode h3 {
-    color: lightslategray;
+    color: rgb(255, 255, 255);
   }
+
