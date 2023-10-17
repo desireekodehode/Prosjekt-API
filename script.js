@@ -19,7 +19,12 @@ const content = document.getElementById("content");
 
 let today = new Date();
 let hours = today.getHours();
+
 let minutes = today.getMinutes();
+if(minutes < 10){
+  minutes = "0" + minutes;
+}
+
 console.log(hours + ":" + minutes);
 
 let day = today.getDay();
@@ -68,7 +73,6 @@ async function getWeather() {
       const [h, m, a] = sunset.split(/:| /);
       return (h % 12 + (a === "PM" ? 12 : 0)).toString().padStart(2, "0") + ":" + m;
     }
-    
     const time24h = convertTo24HourFormat(sunset);
     console.log(time24h); 
 
