@@ -111,7 +111,7 @@ async function getWeather() {
     `;
 
     forecastOne.innerHTML = `
-      <p class="header-litle-text">${daylist[day]}</p>
+      <p class="header-litle-text">${daylist[2]}</p>
       <p class="header-bold-text">${forecastOneData.condition.text}</p>
       <img class="forecastImg" src="${
         forecastOneData.condition.icon
@@ -120,7 +120,7 @@ async function getWeather() {
     `;
 
     forecastTwo.innerHTML = `
-    <p class="header-litle-text">${daylist[day]}</p>
+    <p class="header-litle-text">${daylist[3]}</p>
     <p class="header-bold-text">${forecastTwoData.condition.text}</p>
       <img class="forecastImg" src="${
         forecastTwoData.condition.icon
@@ -129,7 +129,7 @@ async function getWeather() {
     `;
 
     forecastThree.innerHTML = `
-    <p class="header-litle-text">${daylist[day]}</p>
+    <p class="header-litle-text">${daylist[4]}</p>
     <p class="header-bold-text">${forecastThreeData.condition.text}</p>
       <img class="forecastImg" src="${
         forecastThreeData.condition.icon
@@ -138,7 +138,7 @@ async function getWeather() {
     `;
 
     forecastFour.innerHTML = `
-    <p class="header-litle-text">${daylist[day]}</p>
+    <p class="header-litle-text">${daylist[5]}</p>
     <p class="header-bold-text">${forecastFourData.condition.text}</p>
       <img class="forecastImg" src="${
         forecastFourData.condition.icon
