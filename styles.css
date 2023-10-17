@@ -13,6 +13,8 @@ body {
   font-family: "Roboto", sans-serif;
   margin-bottom: 200px;
   min-height: 100vh;
+  padding-left: 50px;
+  padding-right:50px;
 }
 
 .light-mode {
@@ -22,77 +24,52 @@ body {
   background: linear-gradient(to bottom, #101E33, #273557);
 }
 
-.time-place {
-  position: fixed;
-  text-align: end;
-  top: 20px;
-  right: 20px;
-  margin-right: 90px;
-  margin-top: 20px;
-}
-
-
-
-.curren-container{
-    display: flex;
-    justify-content:flex-start;
-    flex-direction: row;
-    flex-wrap: wrap;
-    background-color: rgba(255, 255, 255, 0.2);
-    height: 214px;
-    width: 950px;
-    border-radius: 19px;
-    margin-bottom: 5px;
-    padding: 0px;
-}
-
-.card-current-text {
-  padding-top: 35px;
-  padding-left: 35px;
-  text-align: start;
-  height: 100px;
-  width: 160px;
-  align-items: flex-start;
-}
-
-.card-current-img{
-    height: 100px;
-}
-
-.card-current-xinfo{
-    height: 50px;
-    width: 90px;
-    margin: 0; 
-    padding: 0;
-}
-
-
-.card-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-
-}
-
-.card {
-  height: 250px;
-  width: 229px;
-  background-color: rgba(255, 255, 255, 0.3);
-  border-radius: 19px;
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-
 h1{
   font-size: 35px;
 }
 
-h2 {
+
+.header-litle-text{
+  font-weight: normal;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.header-bold-text{
   font-size: medium;
   text-align: center;
+  font-weight: bold;
+}
+
+.info div p.header-litle-text, .info div p.header-bold-text {
+  text-align: left;
+  margin-right: 20px;
+  font-size: 18px;
+}
+
+.text-grader{
+  text-align: center;
+  color: rgb(236, 2, 49);
+  font-size: 18px;
+  font-weight: bold;
+  padding-top: 25px;
+  padding-bottom: 30px;
+}
+
+.text-grader-two{
+  color: rgb(236, 2, 49);
+  font-size: 18px;
+  font-weight: bold;
+
+}
+
+.time-place {
+  position: absolute;
+  text-align: end;
+  top: 20px;
+  right: 40px;
+  margin-right: 30px;
+  margin-top: 20px;
 }
 
 h3 {
@@ -104,51 +81,130 @@ h4 {
   color: rgb(255, 255, 255);
 }
 
-h5 {
-  font-weight: normal;
-  text-align: center;
-  margin-top: 40px;
+.current-container{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    min-height: 214px;
+    width: 95%;
+    border-radius: 19px;
+    margin-bottom: 5px;
+    margin-top: 100px;
+    padding-right:30px;
+    padding-left: 10px;
 }
 
-p {
-  text-align: center;
-  color: crimson;
-  padding-top: 20px;
+.xinfo-container{
+  display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-left: 30px;
+    margin-bottom: 30px;
+
 }
 
+.photo-text{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.card-current-text {
+  margin-top: 20px;
+  padding-left: 35px;
+  text-align: start;
+  height: 100px;
+  width: 160px;
+  align-items: flex-start;
+}
+
+.card-current-img{
+  margin-top: 30px;
+  margin-left: 20px;
+  height: 150px;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 95%;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 250px;
+  width: 24%;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 19px;
+  margin: 5px 2px;
+}
 
 .forecastImg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100px;
-  margin-left: 60px;
   margin-top: 10px;
 }
 
+@media (max-width: 810px){
+.card{
+  width: 49%;
+}
+}
 
-@media (max-width: 768px) {
-  .curren-container {
-       margin-top: 50px;
-      flex-direction: column;
-      width: 229px;
+@media (max-width: 510px){
+  .card{
+    width: 100%;
   }
 
-  .card-current-text {
-      width: 100px; 
-      padding-top: 15px;
-      padding-left: 15px;
+  .current-container{
+    padding-top: 30px;
+  }
+}
+
+@media (max-width: 370px) {
+  body {
+  padding-left: 5px;
+  padding-right:5px;
+}
+
+  .current-container {
+ width: 100%;
+ height: 100%;
   }
 
-  h1{
-    font-size: 25px;
+  .info div p.header-litle-text, .info div p.header-bold-text {
+    text-align: left;
+    margin-right: 20px;
+    font-size: 18px;
   }
 
-  .card-current-img{
-    height: 100px;
-  }
-
-  .card-current-img
-  .card-current-xinfo {
-      width: 100%; /* Make image and info take full width on mobile */
+  .card-container {
+    width: 100%;
   }
 }
 
 
+
+/* .card-container{
+  /* display: grid; */
+  /* grid-template-columns: minmax(229px,auto) 1fr 1fr 1fr 1fr; */
+  /* grid-auto-flow: column;
+  grid-template-rows: auto;
+  justify-content: center;
+  align-items: center; */
+  
+  /* Grid temple row auto også */ 
