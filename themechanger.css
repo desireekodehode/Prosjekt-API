@@ -3,8 +3,8 @@
 /*////////////////////*/
 
 .light-mode {
-    /* background: linear-gradient(to bottom, #9DC9D6, #DCE9EE); */
-    background-image: url(clouds-2708038_1280.png);
+    /* background: linear-gradiegnt(to bottom, #9DC9D6, #DCE9EE); */
+    background-image: url(davies-designs-studio-f5_lfi2S-d4-unsplash.webp);
     background-size: cover;
   }
   
@@ -25,7 +25,7 @@
   .light-mode .card-container .card, .light-mode .current-container {
     -webkit-backdrop-filter: blur(3px);
     backdrop-filter: blur(3px);
-    background-color: rgba(245, 245, 220, 0.69);
+    background-color: rgba(250, 250, 250, 0.25);
     border: 1px solid rgba(255, 255, 255, 0, 08);
   }
   
