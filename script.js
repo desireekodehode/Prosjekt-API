@@ -1,22 +1,20 @@
 const weatherUrl =
   "https://api.weatherapi.com/v1/forecast.json?key=25cadc5e26b24175a5874453231110&q=Tonsberg&days=4&aqi=no&alerts=no";
 
-
 const currentText = document.getElementById("current-text");
 const current = document.getElementById("current");
 const currentXinfoOne = document.getElementById("current-xinfo-One");
 const currentXinfoTwo = document.getElementById("current-xinfo-Two");
 const currentXinfoThree = document.getElementById("current-xinfo-Three");
 const currentXinfoFour = document.getElementById("current-xinfo-Four");
-const boxes = document.querySelectorAll(".box")
+const boxes = document.querySelectorAll(".box");
 const forecastOne = document.getElementById("forecast-one");
 const forecastTwo = document.getElementById("forecast-two");
 const forecastThree = document.getElementById("forecast-three");
 const forecastFour = document.getElementById("forecast-four");
 
-
 const timePlace = document.getElementById(`time`);
-const content = document.getElementById('content');
+const content = document.getElementById("content");
 
 let today = new Date();
 let hours = today.getHours();
@@ -46,14 +44,14 @@ async function getWeather() {
     const response = await data.json();
     console.log(response);
 
-if (hours <= 6 || hours >= 18){ 
-  document.body.classList.add('dark-mode')
-  document.body.classList.remove('light-mode')
-  boxes.classList.add("box-dark-mode")
-} else {
-  document.body.classList.remove('dark-mode')
-  document.body.classList.add('light-mode')
-}
+    if (hours <= 6 || hours >= 18) {
+      document.body.classList.add("dark-mode");
+      document.body.classList.remove("light-mode");
+      boxes.classList.add("box-dark-mode");
+    } else {
+      document.body.classList.remove("dark-mode");
+      document.body.classList.add("light-mode");
+    }
 
     const currentData = response.current;
     const forecastOneData = response.forecast.forecastday[0].day;
@@ -61,50 +59,95 @@ if (hours <= 6 || hours >= 18){
     const forecastThreeData = response.forecast.forecastday[2].day;
     const forecastFourData = response.forecast.forecastday[3].day;
 
-    currentText.innerHTML =`
+    const sunrise = (response.forecast.forecastday[0].astro.sunrise).substring(0,5);
+   
+    const sunset = response.forecast.forecastday[0].astro.sunset
+
+
+
+
+    function convertTo24HourFormat(sunset) {
+      const [h, m, a] = sunset.split(/:| /);
+      return (h % 12 + (a === "PM" ? 12 : 0)).toString().padStart(2, "0") + ":" + m;
+    }
+    
+  
+    
+    const time24h = convertTo24HourFormat(sunset);
+    console.log(time24h); 
+
+    currentText.innerHTML = `
+    <div class="card-current-text">
     <h7>${daylist[day]}</h7>
     <h1>${currentData.condition.text}</h1>
-    <h8>${currentData.temp_c}°C</h8>
+    <p class="text-grader-two">${currentData.temp_c}°C</p></div>
     `;
 
     current.innerHTML = `
       <img class="card-current-img" src="${currentData.condition.icon}" alt="Weather Icon" />
-      <p>${response.forecast.forecastday[0].astro.sunrise}</p>
-      <p>${response.forecast.forecastday[0].astro.sunset}</p>
+    `;
+
+    currentXinfoOne.innerHTML = `
+    <div class="currentXinfoOne">
+    <p class="header-litle-text">Sunrise</p>
+    <p class="header-bold-text">${sunrise}</p></div>`;
+
+    currentXinfoTwo.innerHTML = `
+    <div class="currentXinfoTwo">
+    <p class="header-litle-text">Sunset</p>
+    <p class="header-bold-text">${time24h}</p></div>
+    `;
+
+    currentXinfoThree.innerHTML = `
+    <div class="currentXinfoThree">
+    <p class="header-litle-text">Wind</p>
+    <p class="header-bold-text">${currentData.wind_degree}</p></div>`;
+
+    currentXinfoFour.innerHTML = `
+    <div class="currentXinfoFour">
+    <p class="header-litle-text">Humidity</p>
+    <p class="header-bold-text">${currentData.humidity}</p></div>
     `;
 
     forecastOne.innerHTML = `
-      <h5>${daylist[day]}</h5>
-      <h2>${forecastOneData.condition.text}</h2>
-      <img class="forecastImg" src="${forecastOneData.condition.icon}" alt="Weather Icon" />
-      <p>${Math.floor(forecastOneData.maxtemp_c)}°C</p>
+      <p class="header-litle-text">${daylist[day]}</p>
+      <p class="header-bold-text">${forecastOneData.condition.text}</p>
+      <img class="forecastImg" src="${
+        forecastOneData.condition.icon
+      }" alt="Weather Icon" />
+      <p class="text-grader">${Math.floor(forecastOneData.maxtemp_c)}°C</p>
     `;
 
     forecastTwo.innerHTML = `
-    <h5>${daylist[day]}</h5>
-      <h2>${forecastTwoData.condition.text}</h2>
-      <img class="forecastImg" src="${forecastTwoData.condition.icon}" alt="Weather Icon" />
-      <p>${Math.round(forecastTwoData.maxtemp_c)}°C</p>
+    <p class="header-litle-text">${daylist[day]}</p>
+    <p class="header-bold-text">${forecastTwoData.condition.text}</p>
+      <img class="forecastImg" src="${
+        forecastTwoData.condition.icon
+      }" alt="Weather Icon" />
+      <p class="text-grader">${Math.round(forecastTwoData.maxtemp_c)}°C</p>
     `;
 
     forecastThree.innerHTML = `
-    <h5>${daylist[day]}</h5>
-      <h2>${forecastThreeData.condition.text}</h2>
-      <img class="forecastImg" src="${forecastThreeData.condition.icon}" alt="Weather Icon" />
-      <p>${Math.round(forecastThreeData.maxtemp_c)}°C</p>
+    <p class="header-litle-text">${daylist[day]}</p>
+    <p class="header-bold-text">${forecastThreeData.condition.text}</p>
+      <img class="forecastImg" src="${
+        forecastThreeData.condition.icon
+      }" alt="Weather Icon" />
+      <p class="text-grader">${Math.round(forecastThreeData.maxtemp_c)}°C</p>
     `;
 
     forecastFour.innerHTML = `
-    <h5>${daylist[day]}</h5>
-      <h2>${forecastFourData.condition.text}</h2>
-      <img class="forecastImg" src="${forecastFourData.condition.icon}" alt="Weather Icon" />
-      <p>${Math.round(forecastFourData.maxtemp_c)}°C</p>
+    <p class="header-litle-text">${daylist[day]}</p>
+    <p class="header-bold-text">${forecastFourData.condition.text}</p>
+      <img class="forecastImg" src="${
+        forecastFourData.condition.icon
+      }" alt="Weather Icon" />
+   <p class="text-grader">${Math.round(forecastFourData.maxtemp_c)}°C</p>
     `;
-
 
     timePlace.innerHTML = `
     <h3>${response.location.name}</h3> 
-    <h4>${hours + ":" + minutes}</h4>
+    <h3>${hours + ":" + minutes}</h3>
     `;
   } catch (error) {
     console.error(error);
@@ -112,7 +155,6 @@ if (hours <= 6 || hours >= 18){
 }
 
 console.log(hours);
-
 
 getWeather();
 
@@ -127,20 +169,18 @@ getWeather();
 }
 // document.body.classList.add('dark-mode')
 
+// currentXinfoOne.innerHTML = `
+// <h6>Sunrise: ${forecastOneData.astro.sunrise}</h6>
+// `;
 
+// currentXinfoTwo.innerHTML = `
+// <h6>Sunset: ${currentData.astro.sunset}</h6>
+// `;
 
-    // currentXinfoOne.innerHTML = `
-    // <h6>Sunrise: ${forecastOneData.astro.sunrise}</h6>
-    // `;
+// currentXinfoThree.innerHTML = `
+// <h6>Wind: ${currentData.wind_kph} km/h</h6>
+// `;
 
-    // currentXinfoTwo.innerHTML = `
-    // <h6>Sunset: ${currentData.astro.sunset}</h6>
-    // `;
-
-    // currentXinfoThree.innerHTML = `
-    // <h6>Wind: ${currentData.wind_kph} km/h</h6>
-    // `;
-
-    // currentXinfoFour.innerHTML = `
-    // <h6>Humidity: ${currentData.humidity}%</h6>
-    // `;
+// currentXinfoFour.innerHTML = `
+// <h6>Humidity: ${currentData.humidity}%</h6>
+// `;
