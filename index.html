@@ -4,9 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prosjekt API</title>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="typography.css">
+    <link rel="stylesheet" href="themechanger.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
 </head>
 <body>
-  <p id="getWeather"></p>  
+  <div class="time-place" id="time"></div>
+  <p id="getWeather"></p> 
+
+  <div class="current-container">
+
+  <div class="photo-text">
+  <div class="cards"id="current-text"></div>
+  <div class="cards"id="current"></div>
+</div>
+
+  <div class="xinfo-container">
+  <div class="cards info"id="current-xinfo-One"></div>
+  <div class="cards info"id="current-xinfo-Two"></div>
+  <div class="cards info"id="current-xinfo-Three"></div>
+  <div class="cards info"id="current-xinfo-Four"></div>
+</div>
+
+  </div>
+
+
+  <div class="card-container">
+  <div class="card"id="forecast-one"></div>
+  <div class="card"id="forecast-two"></div>
+  <div class="card"id="forecast-three"></div>
+  <div class="card"id="forecast-four"></div>
+  </div>
+  
 </body>
 </html>
