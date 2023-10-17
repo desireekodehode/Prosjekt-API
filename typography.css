@@ -1,0 +1,57 @@
+h1 {
+    font-size: 35px;
+}
+
+
+h3 {
+    color: rgb(255, 255, 255);
+}
+
+h4 {
+    font-size: small;
+    color: rgb(255, 255, 255);
+}
+
+.header-litle-text {
+    font-weight: normal;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.header-bold-text {
+    font-size: medium;
+    text-align: center;
+    font-weight: bold;
+}
+
+.info div p.header-litle-text,
+.info div p.header-bold-text {
+    text-align: left;
+    margin-right: 20px;
+    font-size: 18px;
+}
+
+.text-grader {
+    text-align: center;
+    color: rgb(236, 2, 49);
+    font-size: 18px;
+    font-weight: bold;
+    padding-top: 25px;
+    padding-bottom: 30px;
+}
+
+.text-grader-two {
+    color: rgb(236, 2, 49);
+    font-size: 18px;
+    font-weight: bold;
+
+}
+
+.time-place {
+    position: absolute;
+    text-align: end;
+    top: 20px;
+    right: 40px;
+    margin-right: 30px;
+    margin-top: 20px;
+}
