@@ -19,7 +19,12 @@ const content = document.getElementById("content");
 
 let today = new Date();
 let hours = today.getHours();
+
 let minutes = today.getMinutes();
+if(minutes < 10){
+  minutes = "0" + minutes;
+}
+
 console.log(hours + ":" + minutes);
 
 let day = today.getDay();
@@ -45,7 +50,7 @@ async function getWeather() {
     const response = await data.json();
     console.log(response);
 
-    if (hours <= 6 || hours >= 10) {
+    if (hours <= 6 || hours >= 1) {
       document.body.classList.add("dark-mode");
       document.body.classList.remove("light-mode");
       // boxes.classList.add("box-dark-mode");
@@ -64,16 +69,10 @@ async function getWeather() {
    
     const sunset = response.forecast.forecastday[0].astro.sunset
 
-
-
-
     function convertTo24HourFormat(sunset) {
       const [h, m, a] = sunset.split(/:| /);
       return (h % 12 + (a === "PM" ? 12 : 0)).toString().padStart(2, "0") + ":" + m;
     }
-    
-  
-    
     const time24h = convertTo24HourFormat(sunset);
     console.log(time24h); 
 
@@ -159,29 +158,3 @@ console.log(hours);
 
 getWeather();
 
-{
-  /* <p>Last Updated: ${response.current.last_updated}</p> */
-}
-{
-  /* <p>Cloudiness: ${response.current.cloud}%</p> */
-}
-{
-  /* <h2>${response.location.name}, ${response.location.country}</h2> */
-}
-// document.body.classList.add('dark-mode')
-
-// currentXinfoOne.innerHTML = `
-// <h6>Sunrise: ${forecastOneData.astro.sunrise}</h6>
-// `;
-
-// currentXinfoTwo.innerHTML = `
-// <h6>Sunset: ${currentData.astro.sunset}</h6>
-// `;
-
-// currentXinfoThree.innerHTML = `
-// <h6>Wind: ${currentData.wind_kph} km/h</h6>
-// `;
-
-// currentXinfoFour.innerHTML = `
-// <h6>Humidity: ${currentData.humidity}%</h6>
-// `;
