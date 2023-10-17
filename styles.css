@@ -18,10 +18,31 @@ body {
 }
 
 .light-mode {
-  background: linear-gradient(to bottom, #9DC9D6, #DCE9EE);
+  /* background: linear-gradient(to bottom, #9DC9D6, #DCE9EE); */
+  background-image: url(clouds-2708038_1280.png);
+  background-size: cover;
 }
 .dark-mode {
-  background: linear-gradient(to bottom, #101E33, #273557);
+  /* background: linear-gradient(to bottom, #101E33, #273557); */
+  background-image: url(stars.png);
+  background-size: cover;
+  color: lightslategray;
+}
+body.dark-mode .card-container .card {
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  border: 1px solid rgba(255, 255, 255, 0,8);
+}
+
+.light-mode .card-container .card {
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(1px);
+  background-color: rgba(245, 245, 220, 0.189);
+  border: 1px solid rgba(255, 255, 255, 0,08);
+}
+
+.dark-mode h4, .dark-mode h3 {
+  color: lightslategray;
 }
 
 h1{

@@ -16,6 +16,7 @@ const forecastFour = document.getElementById("forecast-four");
 const timePlace = document.getElementById(`time`);
 const content = document.getElementById("content");
 
+
 let today = new Date();
 let hours = today.getHours();
 let minutes = today.getMinutes();
@@ -78,7 +79,7 @@ async function getWeather() {
 
     currentText.innerHTML = `
     <div class="card-current-text">
-    <h7>${daylist[day]}</h7>
+    <h7>${"Now"}</h7>
     <h1>${currentData.condition.text}</h1>
     <p class="text-grader-two">${currentData.temp_c}°C</p></div>
     `;
