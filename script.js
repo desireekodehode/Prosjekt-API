@@ -50,7 +50,7 @@ async function getWeather() {
     const response = await data.json();
     console.log(response);
 
-    if (hours <= 6 || hours >= 1) {
+    if (hours <= 6 || hours >= 18) {
       document.body.classList.add("dark-mode");
       document.body.classList.remove("light-mode");
       // boxes.classList.add("box-dark-mode");
