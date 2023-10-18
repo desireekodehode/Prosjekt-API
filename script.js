@@ -101,7 +101,7 @@ async function getWeather() {
     currentXinfoThree.innerHTML = `
     <div class="currentXinfoThree">
     <p class="header-litle-text">Wind</p>
-    <p class="header-bold-text">${currentData.wind_degree}</p></div>`;
+    <p class="header-bold-text">${currentData.wind_kph}km/h</p></div>`;
 
     // currentXinfoFour.innerHTML = `
     // <div class="currentXinfoFour">
