@@ -73,6 +73,7 @@ body {
   align-items: center;
   flex-wrap: wrap;
   width: 95%;
+  margin-top: 10px;
 }
 
 .card {
@@ -121,6 +122,18 @@ body {
   .xinfo-container {
     gap: 20px;
 }
+
+.photo-text {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.card-current-text {
+text-align: center;
+}
 }
 
 @media (max-width: 375px) {
@@ -144,6 +157,10 @@ body {
 
   .card-current-text {
  text-align: center;
+  }
+
+  .card-current-img {
+    height: center;
   }
 
 

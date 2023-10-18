@@ -103,11 +103,11 @@ async function getWeather() {
     <p class="header-litle-text">Wind</p>
     <p class="header-bold-text">${currentData.wind_degree}</p></div>`;
 
-    currentXinfoFour.innerHTML = `
-    <div class="currentXinfoFour">
-    <p class="header-litle-text">Humidity</p>
-    <p class="header-bold-text">${currentData.humidity}</p></div>
-    `;
+    // currentXinfoFour.innerHTML = `
+    // <div class="currentXinfoFour">
+    // <p class="header-litle-text">Humidity</p>
+    // <p class="header-bold-text">${currentData.humidity}</p></div>
+    // `;
 
     forecastOne.innerHTML = `
       <p class="header-litle-text">${daylist[2]}</p>
