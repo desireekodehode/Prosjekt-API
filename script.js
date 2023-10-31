@@ -11,7 +11,7 @@ const boxes = document.querySelectorAll(".box");
 const forecastOne = document.getElementById("forecast-one");
 const forecastTwo = document.getElementById("forecast-two");
 const forecastThree = document.getElementById("forecast-three");
-const forecastFour = document.getElementById("forecast-four");
+// const forecastFour = document.getElementById("forecast-four");
 
 const timePlace = document.getElementById(`time`);
 const content = document.getElementById("content");
@@ -63,7 +63,7 @@ async function getWeather() {
     const forecastOneData = response.forecast.forecastday[0].day;
     const forecastTwoData = response.forecast.forecastday[1].day;
     const forecastThreeData = response.forecast.forecastday[2].day;
-    const forecastFourData = response.forecast.forecastday[3].day;
+    // const forecastFourData = response.forecast.forecastday[3].day;
 
     const sunrise = (response.forecast.forecastday[0].astro.sunrise).substring(0,5);
    
@@ -136,14 +136,14 @@ async function getWeather() {
       <p class="text-grader">${Math.round(forecastThreeData.maxtemp_c)}°C</p>
     `;
 
-    forecastFour.innerHTML = `
-    <p class="header-litle-text">${daylist[5]}</p>
-    <p class="header-bold-text">${forecastFourData.condition.text}</p>
-      <img class="forecastImg" src="${
-        forecastFourData.condition.icon
-      }" alt="Weather Icon" />
-   <p class="text-grader">${Math.round(forecastFourData.maxtemp_c)}°C</p>
-    `;
+  //   forecastFour.innerHTML = `
+  //   <p class="header-litle-text">${daylist[5]}</p>
+  //   <p class="header-bold-text">${forecastFourData.condition.text}</p>
+  //     <img class="forecastImg" src="${
+  //       forecastFourData.condition.icon
+  //     }" alt="Weather Icon" />
+  //  <p class="text-grader">${Math.round(forecastFourData.maxtemp_c)}°C</p>
+  //   `;
 
     timePlace.innerHTML = `
     <h3>${response.location.name}</h3> 
